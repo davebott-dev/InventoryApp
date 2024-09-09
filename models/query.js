@@ -17,4 +17,10 @@ exports.createNewTrainer = async (name) => {
         "INSERT INTO trainers (trainer_name) VALUES ($1)", [name]
     );
 }
-
+exports.getElementData = async(category,index)=> {
+  const tableName = category;
+  const {rows} = await pool.query (
+    "SELECT * FROM " + tableName + " WHERE category_id = ($1)",[index]
+  );
+  return rows;
+}
