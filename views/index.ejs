@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>homepage</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div><a href="/">Pokemon Inventory</a></div>
+      <a href="/new"><button>Create New Trainer</button></a>
+    </header>
+    <main>
+      <div class="gridCont">
+        <% trainers.forEach((trainer) => { %>
+        <div>
+          <%= trainer.trainer_name %>
+          <a href="/trainer/<%= trainer.trainer_id %>">
+            <button>View <%= trainer.trainer_name %>'s Inventory</button>
+          </a>
+        </div>
+
+        <%}); %>
+      </div>
+    </main>
+    <footer>
+      <a href="https://github.com/davebott-dev">View My Github</a>
+    </footer>
+  </body>
+</html>

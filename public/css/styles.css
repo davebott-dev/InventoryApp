@@ -1,0 +1,38 @@
+:root{
+    --text: 'Courier New', Courier, monospace;
+}
+html{
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    font-family: var(--text);
+}
+body{
+    padding: 15px;
+}
+header{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+header>div{
+    font-size: larger;
+    font-weight: bolder;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+.gridCont {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    grid-template-rows: 250px;
+    grid-auto-rows: 250px;
+    grid-gap: 25px;
+}
+.gridCont>div{
+    border: 1px solid black;
+    cursor: pointer;
+}
