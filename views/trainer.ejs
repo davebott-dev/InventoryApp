@@ -20,13 +20,8 @@
       <ul>
         <% trainerData.forEach((element) => { %>
         <li>
-          <%= element.pokemon_name %>
-          <form method="POST" action="/update"></form>
-            <a href="/update/<%= element.trainer_id %>"><button>UPDATE</button></a>
-          </form>
-          <form method="POST" action="/delete">
-            <a href="/delete/<%= element.trainer_id %>"><button>DELETE</button></a>
-          </form>
+          <a href="<%= element.trainer_id %>/<%= element.category %>/<%= element.category_id %>"><%= element.pokemon_name %></a>
+    
         </li>
         <%}); %>
     </ul>
