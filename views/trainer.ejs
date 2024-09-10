@@ -20,8 +20,10 @@
       <ul>
         <% trainerData.forEach((element) => { %>
         <li>
-          <a href="<%= element.trainer_id %>/<%= element.category %>/<%= element.category_id %>"><%= element.pokemon_name %></a>
-    
+          <a href="<%= element.trainer_id %>/<%= element.pokemon_category %>/<%= element.pokemon_id %>"><%= element.pokemon_name %></a>
+        </li>
+        <li>
+          <a href="<%= element.trainer_id %>/<%= element.key_item_category %>/<%= element.key_item_category_id %>"><%= element.item_name %></a>
         </li>
         <%}); %>
     </ul>
