@@ -7,6 +7,7 @@ const indexRoute = require("./routes/index");
 const newRoute = require('./routes/new');
 const trainerRoute = require('./routes/trainer');
 const elementRoute = require('./routes/element');
+const addRoute = require('./routes/add');
 
 app.use(express.static(assetsPath));
 app.use(express.urlencoded({extended:true}));
@@ -14,6 +15,7 @@ app.use("/",indexRoute);
 app.use('/new',newRoute);
 app.use('/trainer',trainerRoute);
 app.use('/trainer/:trainerId', elementRoute);
+app.use('/trainer', addRoute);
 
 app.set("views", path.join(__dirname,"views"));
 app.set("view engine", "ejs");
