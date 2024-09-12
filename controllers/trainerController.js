@@ -3,8 +3,7 @@ const db = require("../models/query");
 exports.importData = async (req, res) => {
   const index = req.params.trainerId;
   const data = await db.getSingleTrainerData(index);
-  console.log(data)
-  res.render("trainer", { trainerData: data});
+  res.render("trainer", { trainerData: data, index:index});
 };
 exports.insertData = async(req,res)=> {
   const category = req.body.categories;
