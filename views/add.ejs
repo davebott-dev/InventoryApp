@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homepage</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+        <header>
+            <div><a href="/">Pokemon Inventory</a></div>
+            <div>
+                <a href="/new"><button>Create New Trainer</button></a>
+                <a href="/"><button>All Trainers</button></a>
+            </div>
+        </header>
+        <main>
+            <h1><%= title %></h1>
+            <form method="POST" action="/trainer/<%= data[0].owner_id %>/add">
+                <label for="categories">Choose a category:</label>
+                <select id="categories" name="categories">
+                    <option  value="pokemon">Pokemon</option>
+                    <option value="key_items">Items</option>
+                </select>
+                <label for="categoryItem">What will you add?</label>
+                <input type="text" id="categoryItem" name="categoryItem">
+                <button type="submit">Add</button>
+            </form>
+        </main>
+        <footer>
+        <a href ="https://github.com/davebott-dev">View My Github</a>
+        </footer>
+</body>
+</html>
