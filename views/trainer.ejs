@@ -12,11 +12,18 @@
       <div>
         <a href="/new"><button>Create New Trainer</button></a>
         <a href="/"><button>All Trainers</button></a>
-        <a href="/trainer/<%= trainerData[0].owner_id %>/add"><button>Add to Inventory</button></a>
+        <a href="/trainer/<%= index %>/add"
+          ><button>Add to Inventory</button></a
+        >
       </div>
     </header>
     <main>
-      <h1>Bag</h1>
+      <% if(trainerData.length>0) { %>
+         <h1><%= trainerData[0].trainer_name %>'s</h1>
+        <% }  else {%>
+          <h1>Bag</h1>
+          <% } %>
+      
       <ul>
         <% trainerData.forEach((element) => { %>
         <li>
@@ -25,7 +32,7 @@
             ><%= element.name %></a
           >
         </li>
-  
+
         <%}); %>
       </ul>
     </main>
