@@ -6,12 +6,16 @@ exports.getTrainerData = async () => {
 };
 exports.getSingleTrainerData = async (index) => {
   const { rows } = await pool.query(
-   `SELECT p.name,p.owner_id,p.category,p.category_id
+   `SELECT p.name,p.owner_id,p.category,p.category_id,t.trainer_name
     FROM pokemon as p
+    LEFT JOIN trainers as t
+    ON p.owner_id = t.trainer_id
     WHERE p.owner_id =($1)
     UNION
-    SELECT k.name,k.owner_id,k.category,k.category_id
+    SELECT k.name,k.owner_id,k.category,k.category_id, t.trainer_name
     FROM key_items as k 
+    LEFT JOIN trainers as t
+    ON k.owner_id = t.trainer_id
     WHERE k.owner_id = ($1)
   `, [index]
   );
