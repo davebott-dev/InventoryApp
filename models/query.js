@@ -21,8 +21,8 @@ exports.getSingleTrainerData = async (index) => {
   );
 return rows;
 };
-exports.createNewTrainer = async (name) => {
-  await pool.query("INSERT INTO trainers (trainer_name) VALUES ($1)", [name]);
+exports.createNewTrainer = async (name,url) => {
+  await pool.query("INSERT INTO trainers (trainer_name,url) VALUES (($1),($2))", [name,url]);
 };
 exports.getElementData = async (category, index) => {
   const tableName = category;
