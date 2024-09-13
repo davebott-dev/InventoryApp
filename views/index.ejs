@@ -16,9 +16,16 @@
         <% trainers.forEach((trainer) => { %>
         <div>
           <%= trainer.trainer_name %>
-          <a href="/trainer/<%= trainer.trainer_id %>">
-            <button>View <%= trainer.trainer_name %>'s Inventory</button>
-          </a>
+
+          <img class = "profileImg" src="<%= trainer.url %>" alt="profile image">
+          <div>
+            <a href="/trainer/<%= trainer.trainer_id %>">
+              <button>View  Inventory</button>
+            </a>
+            <a href="/trainer/<%= trainer.trainer_id %>/delete">
+              <button>Delete  Inventory</button>
+            </a>
+          </div>
         </div>
 
         <%}); %>
