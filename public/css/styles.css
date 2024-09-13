@@ -7,19 +7,28 @@ html{
     height: 100%;
     width: 100%;
     font-family: var(--text);
+    background: aliceblue;
 }
 body{
     padding: 15px;
+    height: 90%;
+}
+main {
+    height: 100%;
 }
 header{
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 50px;
 }
 header>div{
     font-size: larger;
     font-weight: bolder;
+}
+footer{
+    text-align: center;
 }
 a {
     text-decoration: none;
@@ -33,6 +42,15 @@ a {
     grid-gap: 25px;
 }
 .gridCont>div{
-    border: 1px solid black;
-    cursor: pointer;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: white;
+}
+.profileImg {
+    height: 60%;
+    width: 50%;
 }
