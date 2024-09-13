@@ -32,11 +32,13 @@ exports.getElementData = async (category, index) => {
   );
   return rows;
 };
-
 exports.insertItem = async(tableName,item,id,category) => {
   await pool.query(
     `INSERT INTO ${tableName} (name, owner_id ,category)
      VALUES (($1), ($2), ($3))
     `,[item,id,category]
   )
+}
+exports.deleteTrainer = async(index) => {
+  await pool.query("DELETE FROM trainers WHERE trainer_id =($1)",[index])
 }
