@@ -22,9 +22,9 @@
             <a href="/trainer/<%= trainer.trainer_id %>">
               <button>View  Inventory</button>
             </a>
-            <a href="/trainer/<%= trainer.trainer_id %>/delete">
-              <button>Delete  Inventory</button>
-            </a>
+            <form action="/trainer/<%= trainer.trainer_id %>/delete" method="POST">
+                <button>Delete  Inventory</button>
+            </form>
           </div>
         </div>
 
