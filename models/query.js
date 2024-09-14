@@ -42,3 +42,18 @@ exports.insertItem = async(tableName,item,id,category) => {
 exports.deleteTrainer = async(index) => {
   await pool.query("DELETE FROM trainers WHERE trainer_id =($1)",[index])
 }
+exports.updateItem = async(category,name,categoryId) => {
+  await pool.query(`
+    UPDATE ${category}
+    SET name = ($1) 
+    WHERE category_id = ($2)
+    ` ,[name,categoryId]
+  )
+}
+exports.deleteItem = async(category,index) => {
+  await pool.query(`
+    DELETE FROM ${category}
+     WHERE category_id =($1)
+     `,
+     [index])
+}
