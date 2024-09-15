@@ -1,17 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Update</title>
-</head>
-<body>
-    <h1><%= title %></h1>
-    <form method="POST" action="/trainer/<%= trainerId %>/<%= category %>/<%= categoryId %>/update">
-        <label for="name">New Name:</label>
-        <input type="text" id="name" name="name">
-        <button type="submit">Update</button>
-    </form>
-    
-</body>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div>
+        <header>
+          <div><a href="/">Pokemon Inventory</a></div>
+          <div>
+            <a href="/new"><button>Create New Trainer</button></a>
+            <a href="/"><button>All Trainers</button></a>
+            <a href="/trainer/<%= trainerId%>/<%= category %>/<%= categoryId %>"
+              ><button>Back</button></a
+            >
+          </div>
+        </header>
+        <main>
+          <h1><%= title %></h1>
+          <form
+            method="POST"
+            action="/trainer/<%= trainerId %>/<%= category %>/<%= categoryId %>/update"
+          >
+            <div id="result">
+              <% if (category == "pokemon") { %>
+              <label for="name">New Name:</label>
+              <input type="text" id="name" name="name" />
+              <label for="type">New Type:</label>
+              <input type="text" id="ty" name="type" />
+              <label for="level">New Level:</label>
+              <input type="number" id="level" name="level" />
+              <label for="desc">New Description:</label>
+              <textarea id="desc" name="desc"></textarea>
+              <label for="url">New img URL (optional):</label>
+              <input type="text" id="url" name="url" />
+              <% } else { %>
+              <label for="name">New Name:</label>
+              <input type="text" id="name" name="name" />
+              <label for="desc">New Description:</label>
+              <textarea id="desc" name="desc"></textarea>
+              <label for="url">New img URL (optional):</label>
+              <input type="text" id="url" name="url" />
+              <% } %>
+            </div>
+            <button type="submit">Update</button>
+          </form>
+        </main>
+    </div>
+    <footer>
+        <a href="https://github.com/davebott-dev">View My Github</a>
+      </footer>
+  </body>
 </html>

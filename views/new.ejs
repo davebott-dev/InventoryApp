@@ -7,23 +7,25 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-        <header>
-            <div><a href="/">Pokemon Inventory</a></div>
-            <div>
-                <a href="/new"><button>Create New Trainer</button></a>
-                <a href="/"><button>All Trainers</button></a>
-            </div>
-        </header>
-        <main>
-            <h1><%= title %></h1>
-            <form method="POST" action="/new">
-                <label for="text">Trainer Name:</label>
-                <input type="text" id="text" name="text">
-                <label for="img">Add img url (optional):</label>
-                <input type="text" id="img" name="img">
-                <button type="submit">Create</button>
-            </form>
-        </main>
+        <div>
+            <header>
+                <div><a href="/">Pokemon Inventory</a></div>
+                <div>
+                    <a href="/new"><button>Create New Trainer</button></a>
+                    <a href="/"><button>All Trainers</button></a>
+                </div>
+            </header>
+            <main>
+                <h1><%= title %></h1>
+                <form method="POST" action="/new">
+                    <div id="result">
+                        <label for="text">Trainer Name:</label>
+                        <input type="text" id="text" name="text">
+                    </div>
+                    <button type="submit">Create</button>
+                </form>
+            </main>
+        </div>
         <footer>
         <a href ="https://github.com/davebott-dev">View My Github</a>
         </footer>
