@@ -6,7 +6,7 @@ exports.importData = async(req,res) => {
 }
 exports.insertData = async(req,res) => {
     const formData = req.body;
-    await db.createNewTrainer(formData.text, formData.img);
+    await db.createNewTrainer(formData.text);
     res.redirect('/'); 
 }
 exports.deleteData = async(req,res) => {
