@@ -22,4 +22,4 @@ app.set("view engine", "ejs");
 
 const port = process.env.SERVERPORT ||3000;
 
-app.listen(port, ()=> console.log(`the app is listening on port ${port}`));
+app.listen(port, '0.0.0.0', ()=> console.log(`the app is listening on port ${port}`));
