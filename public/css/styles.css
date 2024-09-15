@@ -7,25 +7,39 @@ html{
     height: 100%;
     width: 100%;
     font-family: var(--text);
-    background: aliceblue;
+    background: ghostwhite;
 }
 body{
-    padding: 15px;
-    height: 90%;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 main {
-    height: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 header{
-    width: 100%;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
     justify-content: space-between;
     margin-bottom: 50px;
+    background: lightslategray;
+    padding: 25px;
 }
 header>div{
     font-size: larger;
     font-weight: bolder;
+}
+header>div+div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:20px;
 }
 footer{
     text-align: center;
@@ -49,8 +63,57 @@ a {
     justify-content: space-between;
     padding: 15px;
     background-color: white;
+    font-size: larger;
+    font-weight: bold;
+}
+.gridCont>div>div {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 .profileImg {
     height: 60%;
     width: 50%;
+}
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+.item>div>strong{
+    font-size: 25px;
+}
+.item>div+div {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+#result{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+#result>input,textarea {
+    width: 350px;
+}
+#result>textarea{
+    height: 250px;
+}
+#result>label{
+    font-weight: bold;
+}
+button {
+    border-radius: 10px;
+    width: 150px;
+    height: 30px;
+    background:white;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
