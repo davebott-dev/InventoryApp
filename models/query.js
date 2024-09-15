@@ -21,8 +21,8 @@ exports.getSingleTrainerData = async (index) => {
   );
 return rows;
 };
-exports.createNewTrainer = async (name,url) => {
-  await pool.query("INSERT INTO trainers (trainer_name,url) VALUES (($1),($2))", [name,url]);
+exports.createNewTrainer = async (name) => {
+  await pool.query("INSERT INTO trainers (trainer_name) VALUES (($1))", [name]);
 };
 exports.getElementData = async (category, index) => {
   const tableName = category;
@@ -32,22 +32,41 @@ exports.getElementData = async (category, index) => {
   );
   return rows;
 };
-exports.insertItem = async(tableName,item,id,category) => {
-  await pool.query(
-    `INSERT INTO ${tableName} (name, owner_id ,category)
-     VALUES (($1), ($2), ($3))
-    `,[item,id,category]
-  )
+exports.insertPokemonItem = async(tableName,item,id,category,type,level,desc,url) => {
+  if(tableName =="pokemon") {
+    await pool.query(
+      `INSERT INTO pokemon (name, owner_id ,category,type,level,description,url)
+       VALUES (($1), ($2), ($3),($4), ($5), ($6), ($7))
+      `,[item,id,category,type,level,desc,url]
+    )
+  }
+}
+exports.insertKeyItem = async(tableName,item,id,category,desc,url) => {
+  if(tableName=="key_items") {
+    await pool.query(
+      `INSERT INTO key_items (name, owner_id ,category,description,url)
+       VALUES (($1), ($2), ($3),($4), ($5))
+      `,[item,id,category,desc,url]
+    )
+  }
 }
 exports.deleteTrainer = async(index) => {
   await pool.query("DELETE FROM trainers WHERE trainer_id =($1)",[index])
 }
-exports.updateItem = async(category,name,categoryId) => {
+exports.updatePokemonItem = async(categoryId,name,desc,url) => {
   await pool.query(`
-    UPDATE ${category}
-    SET name = ($1) 
-    WHERE category_id = ($2)
-    ` ,[name,categoryId]
+    UPDATE pokemon
+    SET name = ($1), description = ($2), url = ($3)
+    WHERE category_id = ($4)
+    ` ,[name,desc,url,categoryId]
+  )
+}
+exports.updateKeyItem = async(categoryId,name,desc,url) => {
+  await pool.query(`
+    UPDATE key_items
+    SET name = ($1), description = ($2), url = ($3)
+    WHERE category_id = ($4)
+    ` ,[name,desc,url,categoryId]
   )
 }
 exports.deleteItem = async(category,index) => {
